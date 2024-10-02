@@ -1,0 +1,80 @@
+/* styles.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top right, #87CEFA, #ff69b4);
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+.birthday-text {
+  font-size: 70px;
+  color: white;
+  text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+  transform: perspective(500px) rotateY(15deg);
+  animation: textSwing 3s ease-in-out infinite;
+}
+
+.sub-text {
+  font-size: 30px;
+  color: white;
+  margin-top: 10px;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.balloons-3d {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  position: relative;
+  margin-top: 50px;
+}
+
+.balloon {
+  width: 120px;
+  height: 180px;
+  border-radius: 50% 50% 40% 40%;
+  background-color: #ff6347;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+  transform: translateZ(0);
+  box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* String for the balloons */
+.balloon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 90px;
+  background: black;
+  left: 50%;
+  bottom: -90px;
+}
+
+/* Floating 3D effect for the balloons */
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0) rotateZ(0deg) translateZ(0);
+  }
+  50% {
+      transform: translateY(-300px) rotateZ(10deg) translateZ(30px);
+  }
+}
+
+@keyframes textSwing {
+  0%, 100% {
+      transform: perspective(500px) rotateY(15deg);
+  }
+  50% {
+      transform: perspective(500px) rotateY(-15deg);
+  }
+}
